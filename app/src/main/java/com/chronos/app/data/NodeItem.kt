@@ -1,4 +1,4 @@
-package com.josue.chronos.data.model
+package com.chronos.app.data
 
 enum class DimensionCategory {
     FISICO, MENTAL, EXPRESIVO, OCUPACIONAL
