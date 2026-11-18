@@ -27,6 +27,9 @@
     <color name="cyber_capsule_fill">#1A1A1C23</color>
     <color name="cyber_aura_primary">#22007ACC</color>
     <color name="cyber_aura_secondary">#1AD60044</color>
+    
+    <!-- Color requerido por TimelineView -->
+    <color name="design_default_color_primary">#FF007ACC</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
