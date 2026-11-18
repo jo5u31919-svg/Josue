@@ -1,0 +1,18 @@
+<resources>
+    <!-- Estilo de Tarjeta Estilo HarmonyOS 7 con Bordes Luminosos -->
+    <style name="HarmonyCardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">#121824</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="strokeColor">#D4AF37</item> <!-- Dorado Dagas del Tiempo -->
+    </style>
+
+    <!-- Estilo de Botón Táctico Prince of Persia -->
+    <style name="PrinceButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#00E5FF</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
