@@ -13,8 +13,8 @@ class NodeAdapter(private val nodeList: List<NodeItem>) :
     RecyclerView.Adapter<NodeAdapter.NodeViewHolder>() {
 
     class NodeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvTitle: TextView = itemView.findViewById(R.id.tvNodeTitle)
-        val tvTime: TextView = itemView.findViewById(R.id.tvNodeTime)
+        val tvNodeTitle: TextView = itemView.findViewById(R.id.tvNodeTitle)
+        val tvNodeTime: TextView = itemView.findViewById(R.id.tvNodeTime)
         val tvCountdownLabel: TextView = itemView.findViewById(R.id.tvCountdownLabel)
         val tvStatusLabel: TextView = itemView.findViewById(R.id.tvStatusLabel)
         val checkboxState: ImageView = itemView.findViewById(R.id.checkboxState)
@@ -29,10 +29,9 @@ class NodeAdapter(private val nodeList: List<NodeItem>) :
     override fun onBindViewHolder(holder: NodeViewHolder, position: Int) {
         val node = nodeList[position]
         
-        holder.tvTitle.text = node.title
-        holder.tvTime.text = node.timeInfo
+        holder.tvNodeTitle.text = node.title
+        holder.tvNodeTime.text = node.timeInfo
 
-        // Configuración de vista de conteo dinámico estilo HarmonyOS
         if (!node.isActivated) {
             holder.tvCountdownLabel.text = "> SE ACTIVA EN: 08:00"
         } else {
@@ -45,15 +44,15 @@ class NodeAdapter(private val nodeList: List<NodeItem>) :
             
             when (node.statusState) {
                 0 -> {
-                    holder.checkboxState.setImageResource(R.drawable.ic_checkbox_null)
+                    holder.checkboxState.setImageResource(android.R.drawable.checkbox_off_background)
                     holder.tvStatusLabel.text = "> NO MARCADO"
                 }
                 1 -> {
-                    holder.checkboxState.setImageResource(R.drawable.ic_checkbox_checked)
+                    holder.checkboxState.setImageResource(android.R.drawable.checkbox_on_background)
                     holder.tvStatusLabel.text = "> OBJETIVO CUMPLIDO"
                 }
                 2 -> {
-                    holder.checkboxState.setImageResource(R.drawable.ic_checkbox_unchecked)
+                    holder.checkboxState.setImageResource(android.R.drawable.ic_menu_close_clear_cancel)
                     holder.tvStatusLabel.text = "> INCOMPLETO"
                 }
             }
