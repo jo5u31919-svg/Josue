@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modo Día (Cyber-Light / Harmony Bright) -->
+    <color name="cyber_bg_deep">#FFF2F4F8</color>
+    <color name="cyber_surface">#FFFFFFFF</color>
+    <color name="cyber_surface_glass">#E8FFFFFF</color>
+    <color name="cyber_surface_elevated">#FFE4E9F2</color>
+    <color name="cyber_border_subtle">#241A1C23</color>
+    <color name="cyber_rim_highlight">#59007ACC</color>
+
+    <!-- Acentos Neón de Alta Saturación para Luz de Día -->
+    <color name="neon_cyan">#FF007ACC</color>
+    <color name="neon_magenta">#FFD60044</color>
+    <color name="neon_amber">#FFD97706</color>
+    <color name="neon_green">#FF008A3E</color>
+    <color name="neon_violet">#FF6D28D9</color>
+
+    <!-- Tipografía de Alto Contraste -->
+    <color name="cyber_text_primary">#FF1A1C23</color>
+    <color name="cyber_text_secondary">#FF4A5162</color>
+    <color name="cyber_text_muted">#FF737B8F</color>
+
+    <!-- Capas de Vidrio y Brillo para Drawables -->
+    <color name="cyber_glass_fill">#EBFFFFFF</color>
+    <color name="cyber_glass_fill_alt">#EBF5F7FB</color>
+    <color name="cyber_badge_fill">#1F007ACC</color>
+    <color name="cyber_capsule_fill">#1A1A1C23</color>
+    <color name="cyber_aura_primary">#22007ACC</color>
+    <color name="cyber_aura_secondary">#1AD60044</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

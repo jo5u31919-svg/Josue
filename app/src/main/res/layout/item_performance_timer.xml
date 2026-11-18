@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardPerfRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/cyber_surface_glass"
+    app:cardCornerRadius="22dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/cyber_border_subtle"
+    app:strokeWidth="1.2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/badgePerfIcon"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@drawable/bg_harmony_icon_badge">
+
+                <ImageView
+                    android:id="@+id/ivPerfIcon"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Icono de categoría"
+                    android:src="@drawable/ic_brain"
+                    app:tint="@color/neon_cyan" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPerfName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/orbitron"
+                    android:maxLines="1"
+                    android:text="MENTAL"
+                    android:textColor="@color/cyber_text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPerfStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/jetbrains_mono"
+                    android:maxLines="1"
+                    android:text="ENFOQUE NEURAL"
+                    android:textColor="@color/cyber_text_muted"
+                    android:textSize="9sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvPerfCountdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/jetbrains_mono"
+            android:text="45:00"
+            android:textColor="@color/neon_cyan"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressPerf"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="8dp"
+            android:max="1000"
+            android:progress="1000"
+            android:progressBackgroundTint="@color/cyber_surface_elevated"
+            android:progressTint="@color/neon_cyan" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnPerfPlayPause"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_harmony_capsule_btn"
+                android:contentDescription="Iniciar o pausar temporizador"
+                android:padding="12dp"
+                android:src="@drawable/ic_play"
+                app:tint="@color/neon_cyan" />
+
+            <ImageButton
+                android:id="@+id/btnPerfReset"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="6dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Reiniciar temporizador"
+                android:padding="12dp"
+                android:src="@drawable/ic_reset"
+                app:tint="@color/cyber_text_secondary" />
+
+            <ImageButton
+                android:id="@+id/btnPerfConfig"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Ajustar duración"
+                android:padding="12dp"
+                android:src="@drawable/ic_edit"
+                app:tint="@color/neon_magenta" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/statsScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/statsRootContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="18dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="28dp">
+
+        <!-- Header Spatial Telemetry -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="14dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvStatsTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_harmony_capsule_btn"
+                    android:fontFamily="@font/jetbrains_mono"
+                    android:letterSpacing="0.14"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="3dp"
+                    android:text="NEURAL_TELEMETRY // ECG"
+                    android:textColor="@color/neon_cyan"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tvStatsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/orbitron"
+                    android:letterSpacing="0.06"
+                    android:text="@string/stats_title"
+                    android:textColor="@color/cyber_text_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvStatsSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/rajdhani"
+                    android:text="@string/stats_subtitle"
+                    android:textColor="@color/cyber_text_secondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvStatsLiveBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_harmony_capsule_btn"
+                android:fontFamily="@font/jetbrains_mono"
+                android:paddingHorizontal="11dp"
+                android:paddingVertical="5dp"
+                android:text="● LIVE"
+                android:textColor="@color/neon_magenta"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Period Selector -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupPeriod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:chipSpacingHorizontal="10dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPeriodThisWeek"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:checked="true"
+                android:text="@string/stats_period_this_week" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPeriodLast7Days"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/stats_period_last_7_days" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Summary Card 1: Total Focus Time -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTotalFocus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="@color/cyber_surface_glass"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/cyber_rim_highlight"
+            app:strokeWidth="1.2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="18dp"
+                android:paddingVertical="16dp">
+
+                <FrameLayout
+                    android:id="@+id/badgeTotalFocus"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:background="@drawable/bg_harmony_icon_badge">
+
+                    <ImageView
+                        android:id="@+id/ivTotalFocus"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/stats_total_focus_label"
+                        android:src="@drawable/ic_timer_total"
+                        app:tint="@color/neon_cyan" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTotalFocusLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/orbitron"
+                        android:letterSpacing="0.1"
+                        android:text="@string/stats_total_focus_label"
+                        android:textColor="@color/cyber_text_secondary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/tvTotalFocusValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="0m"
+                        android:textColor="@color/neon_cyan"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvTotalFocusPeriodTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_harmony_capsule_btn"
+                    android:fontFamily="@font/jetbrains_mono"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="7 DÍAS"
+                    android:textColor="@color/cyber_text_primary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Summary Cards 2 & 3: Dominant Category + Active Streak -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDominantCategory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/cyber_surface_glass"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/cyber_border_subtle"
+                app:strokeWidth="1.2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ivDominantCategory"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@string/stats_dominant_category_label"
+                            android:src="@drawable/ic_trophy_cyber"
+                            app:tint="@color/neon_magenta" />
+
+                        <TextView
+                            android:id="@+id/tvDominantLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:fontFamily="@font/orbitron"
+                            android:text="DOMINANTE"
+                            android:textColor="@color/cyber_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvDominantCategoryValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/orbitron"
+                        android:text="—"
+                        android:textColor="@color/cyber_text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDominantCategorySub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="Sin sesiones"
+                        android:textColor="@color/neon_magenta"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardActiveStreak"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/cyber_surface_glass"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/cyber_border_subtle"
+                app:strokeWidth="1.2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ivActiveStreak"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@string/stats_active_streak_label"
+                            android:src="@drawable/ic_streak"
+                            app:tint="@color/neon_amber" />
+
+                        <TextView
+                            android:id="@+id/tvStreakLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:fontFamily="@font/orbitron"
+                            android:text="@string/stats_active_streak_label"
+                            android:textColor="@color/cyber_text_secondary"
+                            android:textSize="9.5sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvActiveStreakValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="0 DÍAS"
+                        android:textColor="@color/cyber_text_primary"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvActiveStreakSub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="0 activos hoy"
+                        android:textColor="@color/neon_green"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Neural Pulse ECG Chart Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardNeuralChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/cyber_surface_glass"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/cyber_rim_highlight"
+            app:strokeWidth="1.2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvChartHeader"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/orbitron"
+                        android:letterSpacing="0.09"
+                        android:text="PULSO NEURAL SEMANAL"
+                        android:textColor="@color/cyber_text_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvChartHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="TOCA UN DÍA"
+                        android:textColor="@color/cyber_text_muted"
+                        android:textSize="9.5sp" />
+                </LinearLayout>
+
+                <!-- Category Filter Chips -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:scrollbars="none">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupCategoryFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:selectionRequired="true"
+                        app:singleLine="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipFilterAll"
+                            style="@style/Widget.Chronos.DayChip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:checked="true"
+                            android:text="Todas" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipFilterMental"
+                            style="@style/Widget.Chronos.DayChip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:text="@string/category_mental" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipFilterPhysical"
+                            style="@style/Widget.Chronos.DayChip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:text="@string/category_physical" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipFilterExpressive"
+                            style="@style/Widget.Chronos.DayChip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:text="@string/category_expressive" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipFilterOccupational"
+                            style="@style/Widget.Chronos.DayChip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:text="@string/category_occupational" />
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+
+                <com.chronos.app.ui.custom.NeuralPulseChartView
+                    android:id="@+id/neuralPulseChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="245dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Gráfico ECG de pulso neural para las categorías Mental, Físico, Expresivo y Ocupacional" />
+
+                <!-- Legend Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/dotLegendMental"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_harmony_capsule_btn" />
+
+                    <TextView
+                        android:id="@+id/tvLegendMental"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="Mental"
+                        android:textColor="@color/cyber_text_secondary"
+                        android:textSize="10sp" />
+
+                    <View
+                        android:id="@+id/dotLegendPhysical"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_harmony_capsule_btn" />
+
+                    <TextView
+                        android:id="@+id/tvLegendPhysical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="Físico"
+                        android:textColor="@color/cyber_text_secondary"
+                        android:textSize="10sp" />
+
+                    <View
+                        android:id="@+id/dotLegendExpressive"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_harmony_capsule_btn" />
+
+                    <TextView
+                        android:id="@+id/tvLegendExpressive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="Expresivo"
+                        android:textColor="@color/cyber_text_secondary"
+                        android:textSize="10sp" />
+
+                    <View
+                        android:id="@+id/dotLegendOccupational"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_harmony_capsule_btn" />
+
+                    <TextView
+                        android:id="@+id/tvLegendOccupational"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="Ocupac."
+                        android:textColor="@color/cyber_text_secondary"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvEmptyTelemetryNotice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_harmony_capsule_btn"
+                    android:fontFamily="@font/rajdhani"
+                    android:gravity="center"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="8dp"
+                    android:text="Inicia un módulo de rendimiento en Sistema para registrar tu pulso neural en tiempo real."
+                    android:textColor="@color/cyber_text_secondary"
+                    android:textSize="12.5sp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Category Distribution Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCategoryBreakdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/cyber_surface_glass"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/cyber_border_subtle"
+            app:strokeWidth="1.2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:id="@+id/tvBreakdownHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/orbitron"
+                    android:letterSpacing="0.1"
+                    android:text="DISTRIBUCIÓN POR MÓDULO"
+                    android:textColor="@color/cyber_text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <!-- Mental -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvRowMentalLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/orbitron"
+                        android:text="MENTAL"
+                        android:textColor="@color/cyber_text_primary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvRowMentalValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="0m · 0%"
+                        android:textColor="@color/neon_cyan"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressRowMental"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="12dp"
+                    android:max="1000"
+                    android:progress="0" />
+
+                <!-- Físico -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvRowPhysicalLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/orbitron"
+                        android:text="FÍSICO"
+                        android:textColor="@color/cyber_text_primary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvRowPhysicalValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="0m · 0%"
+                        android:textColor="@color/neon_magenta"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressRowPhysical"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="12dp"
+                    android:max="1000"
+                    android:progress="0" />
+
+                <!-- Expresivo -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvRowExpressiveLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/orbitron"
+                        android:text="EXPRESIVO"
+                        android:textColor="@color/cyber_text_primary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvRowExpressiveValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="0m · 0%"
+                        android:textColor="@color/neon_green"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressRowExpressive"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="12dp"
+                    android:max="1000"
+                    android:progress="0" />
+
+                <!-- Ocupacional -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvRowOccupationalLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/orbitron"
+                        android:text="OCUPACIONAL"
+                        android:textColor="@color/cyber_text_primary"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvRowOccupationalValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:text="0m · 0%"
+                        android:textColor="@color/neon_violet"
+                        android:textSize="11.5sp" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressRowOccupational"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="5dp"
+                    android:max="1000"
+                    android:progress="0" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

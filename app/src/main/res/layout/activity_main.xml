@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_harmony_ambient"
+    tools:context="com.chronos.app.ui.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/mainContentCoordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:orientation="vertical">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/mainViewportContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/mainScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:fillViewport="true"
+                android:paddingBottom="96dp">
+
+            <LinearLayout
+                android:id="@+id/dashboardContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="18dp"
+                android:paddingTop="14dp">
+
+                <!-- HarmonyOS Spatial Header Bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvSystemTag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_harmony_capsule_btn"
+                            android:fontFamily="@font/jetbrains_mono"
+                            android:letterSpacing="0.14"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="3dp"
+                            android:text="@string/cyber_header_tag"
+                            android:textColor="@color/neon_cyan"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/tvAppTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/orbitron"
+                            android:letterSpacing="0.05"
+                            android:text="@string/app_name"
+                            android:textColor="@color/cyber_text_primary"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ImageButton
+                        android:id="@+id/btnFloatingToggle"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_harmony_icon_badge"
+                        android:contentDescription="Activar o desactivar burbuja flotante"
+                        android:padding="12dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_layers"
+                        app:tint="@color/neon_cyan" />
+
+                    <ImageButton
+                        android:id="@+id/btnSettings"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_harmony_icon_badge"
+                        android:contentDescription="@string/settings_desc"
+                        android:padding="12dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_settings"
+                        app:tint="@color/neon_magenta" />
+                </LinearLayout>
+
+                <!-- Motivational Quote Luminous Capsule Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardMotivationalQuote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/cyber_surface_glass"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/cyber_rim_highlight"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="18dp"
+                        android:paddingVertical="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvQuoteBadge"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/jetbrains_mono"
+                                android:letterSpacing="0.1"
+                                android:text="NEURAL_STREAM // PULSA PARA ROTAR"
+                                android:textColor="@color/neon_magenta"
+                                android:textSize="10sp" />
+
+                            <TextView
+                                android:id="@+id/tvDayPhaseBadge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_harmony_capsule_btn"
+                                android:fontFamily="@font/jetbrains_mono"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="3dp"
+                                android:text="FASE: NOCHE"
+                                android:textColor="@color/neon_cyan"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvMotivationalQuote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/rajdhani"
+                            android:lineSpacingMultiplier="1.18"
+                            android:text="“Domina cada segundo antes de que el ciclo reinicie.”"
+                            android:textColor="@color/cyber_text_primary"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Hero Temporal Card: Day Reset + Glowing Laser Timeline -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDayLaser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="22dp"
+                    app:cardBackgroundColor="@color/cyber_surface_glass"
+                    app:cardCornerRadius="26dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/cyber_border_subtle"
+                    app:strokeWidth="1.2dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="18dp"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="16dp">
+
+                        <TextView
+                            android:id="@+id/tvDayResetTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/orbitron"
+                            android:gravity="center"
+                            android:letterSpacing="0.16"
+                            android:text="@string/day_reset_label"
+                            android:textColor="@color/cyber_text_secondary"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDayResetCountdown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/jetbrains_mono"
+                            android:gravity="center"
+                            android:letterSpacing="0.06"
+                            android:text="00:00:00"
+                            android:textColor="@color/neon_cyan"
+                            android:textSize="38sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTimelineHint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="@font/rajdhani"
+                            android:gravity="center"
+                            android:text="Pulsa cualquier nodo luminoso en la barra láser para inspeccionar o abrir notas privadas"
+                            android:textColor="@color/cyber_text_muted"
+                            android:textSize="12sp" />
+
+                        <com.chronos.app.ui.custom.LaserTimelineView
+                            android:id="@+id/laserTimelineView"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_marginTop="10dp"
+                            android:contentDescription="Barra láser de progreso diario con nodos de temporizadores" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Prominent Overclock Extreme Focus Mode Launcher -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardOverclockLauncher"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/cyber_surface_glass"
+                    app:cardCornerRadius="22dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/neon_magenta"
+                    app:strokeWidth="1.4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="14dp">
+
+                        <FrameLayout
+                            android:id="@+id/badgeOverclockIcon"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:background="@drawable/bg_harmony_icon_badge">
+
+                            <ImageView
+                                android:id="@+id/ivOverclockBolt"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/overclock_title"
+                                android:src="@drawable/ic_bolt"
+                                app:tint="@color/neon_magenta" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvOverclockCardTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/orbitron"
+                                android:letterSpacing="0.08"
+                                android:text="@string/overclock_title"
+                                android:textColor="@color/cyber_text_primary"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvOverclockCardSubtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:fontFamily="@font/rajdhani"
+                                android:text="25m Deep Hack · 50m Full · +PTS Rendimiento"
+                                android:textColor="@color/cyber_text_secondary"
+                                android:textSize="12.5sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvOverclockActionPill"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_harmony_capsule_btn"
+                                android:fontFamily="@font/orbitron"
+                                android:paddingHorizontal="12dp"
+                                android:paddingVertical="5dp"
+                                android:text="ACTIVAR"
+                                android:textColor="@color/neon_magenta"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvOverclockPointsBadge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="@font/jetbrains_mono"
+                                android:text="0 PTS"
+                                android:textColor="@color/neon_cyan"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- 4 Fixed Performance Category Modules -->
+                <TextView
+                    android:id="@+id/tvPerformanceSectionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/orbitron"
+                    android:letterSpacing="0.14"
+                    android:text="MÓDULOS DE RENDIMIENTO"
+                    android:textColor="@color/cyber_text_primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/cardMental"
+                        layout="@layout/item_performance_timer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="7dp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/cardPhysical"
+                        layout="@layout/item_performance_timer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/cardExpressive"
+                        layout="@layout/item_performance_timer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="7dp"
+                        android:layout_weight="1" />
+
+                    <include
+                        android:id="@+id/cardOccupational"
+                        layout="@layout/item_performance_timer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <!-- Chronological Custom Timers Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvCustomSectionTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/orbitron"
+                        android:letterSpacing="0.14"
+                        android:text="NODOS PERSONALIZADOS"
+                        android:textColor="@color/cyber_text_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvCustomNodeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_harmony_capsule_btn"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="3dp"
+                        android:text="0 ACTIVOS"
+                        android:textColor="@color/neon_cyan"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvEmptyCustomTimers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_harmony_glass_card"
+                    android:fontFamily="@font/rajdhani"
+                    android:gravity="center"
+                    android:padding="22dp"
+                    android:text="Sin nodos personalizados proyectados.\nPulsa + para crear un nuevo protocolo temporal."
+                    android:textColor="@color/cyber_text_secondary"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCustomTimers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_custom_timer_summary" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabAddTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="18dp"
+                android:contentDescription="@string/fab_add_timer_desc"
+                android:fontFamily="@font/orbitron"
+                android:text="NUEVO NODO"
+                android:textColor="@color/cyber_bg_deep"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/neon_cyan"
+                app:cornerRadius="28dp"
+                app:icon="@drawable/ic_add"
+                app:iconTint="@color/cyber_bg_deep" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <View
+            android:id="@+id/bottomNavDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/cyber_rim_highlight" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cyber_surface"
+            app:elevation="0dp"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu" />
+
+    </LinearLayout>
+
+    <!-- Cinematic Hacker Splash Overlay -->
+    <com.chronos.app.ui.custom.HackerSplashView
+        android:id="@+id/hackerSplashView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

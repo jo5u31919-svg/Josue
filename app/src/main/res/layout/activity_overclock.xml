@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/overclockRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#05050B"
+    tools:context="com.chronos.app.ui.OverclockActivity">
+
+    <!-- Fullscreen Overload Laser Edges & Pulse Aura -->
+    <com.chronos.app.ui.custom.OverclockOverloadFrameView
+        android:id="@+id/overloadFrameView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Main Overclock Console -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/overclockScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/overclockContentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="28dp">
+
+            <!-- Top Overclock HUD Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btnCloseOverclock"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_harmony_icon_badge"
+                    android:backgroundTint="#1E1E2E"
+                    android:contentDescription="Cerrar modo Overclock"
+                    android:padding="12dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_close"
+                    app:tint="#00F0FF" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:letterSpacing="0.14"
+                        android:text="PROTOCOL // OVERCLOCK"
+                        android:textColor="#FF1E42"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/orbitron"
+                        android:letterSpacing="0.06"
+                        android:text="@string/overclock_title"
+                        android:textColor="#F4F8FF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvStabilityBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_harmony_capsule_btn"
+                    android:backgroundTint="#1E2034"
+                    android:fontFamily="@font/jetbrains_mono"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:text="ESTAB. 100%"
+                    android:textColor="#00F0FF"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Time Block Selector -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/orbitron"
+                android:letterSpacing="0.12"
+                android:text="BLOQUE DE SOBRECARGA"
+                android:textColor="#A6B3D1"
+                android:textSize="10.5sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupOverclockBlocks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingHorizontal="8dp"
+                    app:selectionRequired="true"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipBlock25"
+                        style="@style/Widget.Chronos.DayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:checked="true"
+                        android:text="25m · Deep Hack"
+                        android:textColor="#F4F8FF"
+                        app:chipBackgroundColor="#181B2C"
+                        app:chipStrokeColor="#00F0FF" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipBlock50"
+                        style="@style/Widget.Chronos.DayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="50m · Overclock Full"
+                        android:textColor="#F4F8FF"
+                        app:chipBackgroundColor="#181B2C"
+                        app:chipStrokeColor="#FF1E42" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipBlockCustom"
+                        style="@style/Widget.Chronos.DayChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="Personalizado"
+                        android:textColor="#F4F8FF"
+                        app:chipBackgroundColor="#181B2C"
+                        app:chipStrokeColor="#7A86A8" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <!-- Giant Central Reactor Countdown Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCountdownCore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                app:cardBackgroundColor="#D90D0F1B"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#00F0FF"
+                app:strokeWidth="1.6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="28dp">
+
+                    <TextView
+                        android:id="@+id/tvCoreStateBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_harmony_capsule_btn"
+                        android:backgroundTint="#2200F0FF"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:letterSpacing="0.14"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="5dp"
+                        android:text="NÚCLEO EN ESPERA"
+                        android:textColor="#00F0FF"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvOverclockCountdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/jetbrains_mono"
+                        android:gravity="center"
+                        android:letterSpacing="0.06"
+                        android:shadowColor="#00F0FF"
+                        android:shadowDx="0"
+                        android:shadowDy="0"
+                        android:shadowRadius="18"
+                        android:text="25:00"
+                        android:textColor="#FFFFFF"
+                        android:textSize="56sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvBlockModeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/orbitron"
+                        android:letterSpacing="0.12"
+                        android:text="DEEP HACK // +100 PTS POTENCIALES"
+                        android:textColor="#A6B3D1"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Instability Warning Banner (Shown on Pause / Instability) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardInstabilityWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="#33FF1E42"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#FF1E42"
+                app:strokeWidth="1.4dp"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tvInstabilityWarning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jetbrains_mono"
+                    android:gravity="center"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp"
+                    android:text="⚠ INESTABILIDAD DEL NÚCLEO: PAUSAR REDUCE LA BONIFICACIÓN (-10% ESTABILIDAD)"
+                    android:textColor="#FFD166"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Core Temperature Indicator Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCoreTemperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#D90E111E"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#33FFFFFF"
+                app:strokeWidth="1.2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="14dp">
+
+                    <com.chronos.app.ui.custom.CoreTemperatureView
+                        android:id="@+id/coreTemperatureView"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Control Buttons -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStartPauseOverclock"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#00F0FF"
+                android:fontFamily="@font/orbitron"
+                android:letterSpacing="0.1"
+                android:text="@string/overclock_start"
+                android:textColor="#05050B"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:cornerRadius="28dp"
+                app:icon="@drawable/ic_bolt"
+                app:iconGravity="textStart"
+                app:iconTint="#05050B" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAbortOverclock"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/orbitron"
+                android:letterSpacing="0.08"
+                android:text="@string/overclock_abort"
+                android:textColor="#FF1E42"
+                android:textSize="12sp"
+                app:cornerRadius="26dp"
+                app:icon="@drawable/ic_abort_core"
+                app:iconGravity="textStart"
+                app:iconTint="#FF1E42"
+                app:strokeColor="#FF1E42"
+                app:strokeWidth="1.4dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Victory Overlay: Sincronización Exitosa -->
+    <FrameLayout
+        android:id="@+id/layoutVictoryOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E6050710"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="22dp"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardVictoryPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="#F0101424"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#00FF9F"
+            app:strokeWidth="1.8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <FrameLayout
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_harmony_icon_badge"
+                    android:backgroundTint="#2800FF9F">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/overclock_victory_title"
+                        android:src="@drawable/ic_bolt"
+                        app:tint="#00FF9F" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvVictoryTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/orbitron"
+                    android:gravity="center"
+                    android:letterSpacing="0.08"
+                    android:text="@string/overclock_victory_title"
+                    android:textColor="#00FF9F"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvVictorySubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/rajdhani"
+                    android:gravity="center"
+                    android:text="@string/overclock_victory_subtitle"
+                    android:textColor="#A6B3D1"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvVictoryTotalPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_harmony_capsule_btn"
+                    android:backgroundTint="#2200F0FF"
+                    android:fontFamily="@font/jetbrains_mono"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="7dp"
+                    android:text="+100 PTS DE RENDIMIENTO"
+                    android:textColor="#00F0FF"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvVictoryStability"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/jetbrains_mono"
+                    android:text="ESTABILIDAD DE NÚCLEO: 100%"
+                    android:textColor="#00FF9F"
+                    android:textSize="11sp" />
+
+                <!-- 4 Category Rewards -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/orbitron"
+                            android:text="MENTAL"
+                            android:textColor="#F4F8FF"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvRewardMental"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/jetbrains_mono"
+                            android:text="+35 PTS"
+                            android:textColor="#00F0FF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/orbitron"
+                            android:text="FÍSICO"
+                            android:textColor="#F4F8FF"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvRewardPhysical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/jetbrains_mono"
+                            android:text="+20 PTS"
+                            android:textColor="#FF0055"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/orbitron"
+                            android:text="EXPRESIVO"
+                            android:textColor="#F4F8FF"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvRewardExpressive"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/jetbrains_mono"
+                            android:text="+15 PTS"
+                            android:textColor="#00FF9F"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/orbitron"
+                            android:text="OCUPACIONAL"
+                            android:textColor="#F4F8FF"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvRewardOccupational"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/jetbrains_mono"
+                            android:text="+30 PTS"
+                            android:textColor="#B54BFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnVictoryReturn"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="22dp"
+                    android:backgroundTint="#00FF9F"
+                    android:fontFamily="@font/orbitron"
+                    android:text="VOLVER AL SISTEMA"
+                    android:textColor="#05050B"
+                    android:textSize="12.5sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="26dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnVictoryNewBlock"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/orbitron"
+                    android:text="OTRO BLOQUE OVERCLOCK"
+                    android:textColor="#00F0FF"
+                    android:textSize="11.5sp"
+                    app:cornerRadius="24dp"
+                    app:strokeColor="#00F0FF" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </FrameLayout>
+
+</FrameLayout>

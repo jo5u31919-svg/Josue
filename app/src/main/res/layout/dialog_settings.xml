@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/cyber_surface">
+
+    <LinearLayout
+        android:id="@+id/settingsRootContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="22dp">
+
+        <!-- HarmonyOS Sheet Drag Handle -->
+        <View
+            android:layout_width="40dp"
+            android:layout_height="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_harmony_capsule_btn" />
+
+        <TextView
+            android:id="@+id/tvSettingsHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/orbitron"
+            android:letterSpacing="0.1"
+            android:text="SISTEMA // AJUSTES Y TEMAS"
+            android:textColor="@color/neon_cyan"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Day / Night / System Appearance Selector -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/orbitron"
+            android:text="MODO DE APARIENCIA (DÍA / NOCHE)"
+            android:textColor="@color/cyber_text_secondary"
+            android:textSize="11sp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupAppearanceMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipModeNight"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Modo Noche" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipModeDay"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Modo Día" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipModeSystem"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Automático" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/orbitron"
+            android:text="SELECTOR DE PALETA ESPACIAL"
+            android:textColor="@color/cyber_text_secondary"
+            android:textSize="11sp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupThemes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipThemeCyberpunk"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Cyberpunk Cian" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipThemeHarmony"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Harmony Aurora" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipThemeMatrix"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Matrix Verde" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipThemeSynthwave"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Synthwave Oro" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipThemeCrimson"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Ghost Carmesí" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipThemeArctic"
+                style="@style/Widget.Chronos.DayChip"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Ártico Neural" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/cyber_border_subtle" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/orbitron"
+            android:text="BURBUJA FLOTANTE (OVERLAY)"
+            android:textColor="@color/cyber_text_secondary"
+            android:textSize="11sp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchOverlayEnabled"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/rajdhani"
+            android:text="Activar burbuja flotante fuera de la app"
+            android:textColor="@color/cyber_text_primary"
+            android:textSize="15sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGrantOverlayPermission"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="6dp"
+            android:text="CONCEDER PERMISO OVERLAY"
+            android:textColor="@color/neon_magenta"
+            app:cornerRadius="24dp"
+            app:strokeColor="@color/neon_magenta" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/rajdhani"
+            android:text="Temporizadores visibles en tiempo real:"
+            android:textColor="@color/cyber_text_secondary"
+            android:textSize="13sp" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbShowDayReset"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:checked="true"
+            android:fontFamily="@font/rajdhani"
+            android:text="Temporizador de reinicio del día"
+            android:textColor="@color/cyber_text_primary" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbShowPerformance"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:checked="true"
+            android:fontFamily="@font/rajdhani"
+            android:text="Módulos de rendimiento (Mental, Físico, Expresivo, Ocupacional)"
+            android:textColor="@color/cyber_text_primary" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbShowCustom"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:checked="true"
+            android:fontFamily="@font/rajdhani"
+            android:text="Temporizadores personalizados activos"
+            android:textColor="@color/cyber_text_primary" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/rajdhani"
+                android:text="Máximo simultáneo en burbuja:"
+                android:textColor="@color/cyber_text_primary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvMaxTimersValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_harmony_capsule_btn"
+                android:fontFamily="@font/jetbrains_mono"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="3"
+                android:textColor="@color/neon_cyan"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderMaxTimers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stepSize="1"
+            android:value="3"
+            android:valueFrom="1"
+            android:valueTo="6" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="14dp"
+            android:background="@color/cyber_border_subtle" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/orbitron"
+            android:text="AUDIO DE TERMINAL Y HÁPTICA"
+            android:textColor="@color/cyber_text_secondary"
+            android:textSize="11sp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchSoundEnabled"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:checked="true"
+            android:fontFamily="@font/rajdhani"
+            android:text="Efectos de sonido de terminal (SFX)"
+            android:textColor="@color/cyber_text_primary"
+            android:textSize="15sp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchHapticsEnabled"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:checked="true"
+            android:fontFamily="@font/rajdhani"
+            android:text="Vibración háptica avanzada"
+            android:textColor="@color/cyber_text_primary"
+            android:textSize="15sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCloseSettings"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="14dp"
+            android:backgroundTint="@color/neon_cyan"
+            android:text="APLICAR Y CERRAR"
+            android:textColor="@color/white"
+            app:cornerRadius="24dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

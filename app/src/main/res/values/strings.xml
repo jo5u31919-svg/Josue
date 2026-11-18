@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">ChronosSystem</string>
+    <string name="day_reset_label">EL DIA SE REINICIA EN :</string>
+    <string name="cyber_header_tag">CHRONOS // SYSTEM v2.4</string>
+    <string name="category_mental">Mental</string>
+    <string name="category_physical">Físico</string>
+    <string name="category_expressive">Expresivo</string>
+    <string name="category_occupational">Ocupacional</string>
+    <string name="fab_add_timer_desc">Crear temporizador personalizado</string>
+    <string name="settings_desc">Configuración del sistema y temas</string>
+    <string name="overlay_notification_channel_name">ChronosSystem HUD Flotante</string>
+    <string name="overlay_notification_title">ChronosSystem HUD Activo</string>
+    <string name="overlay_notification_text">Monitoreando temporizadores en tiempo real</string>
+    <string name="widget_description">Reloj regresivo de reinicio diario con pulso neón para pantalla de inicio y bloqueo</string>
+    <string name="nav_home">Sistema</string>
+    <string name="nav_stats">Pulso Neural</string>
+    <string name="stats_title">PULSO NEURAL</string>
+    <string name="stats_subtitle">Telemetría semanal de rendimiento cognitivo y físico</string>
+    <string name="stats_period_this_week">Esta Semana</string>
+    <string name="stats_period_last_7_days">Últimos 7 días</string>
+    <string name="stats_total_focus_label">TIEMPO TOTAL DE ENFOQUE</string>
+    <string name="stats_dominant_category_label">CATEGORÍA DOMINANTE</string>
+    <string name="stats_active_streak_label">RACHAS ACTIVAS</string>
+    <string name="overclock_title">MODO OVERCLOCK</string>
+    <string name="overclock_subtitle">Enfoque extremo · Sobrecarga de núcleo</string>
+    <string name="overclock_start">INICIAR OVERCLOCK</string>
+    <string name="overclock_pause">PAUSAR</string>
+    <string name="overclock_resume">REANUDAR NÚCLEO</string>
+    <string name="overclock_abort">ABORTAR / FORZAR CIERRE</string>
+    <string name="overclock_victory_title">SINCRONIZACIÓN EXITOSA</string>
+    <string name="overclock_victory_subtitle">Bloque de enfoque completado al 100% de potencia</string>
+</resources>

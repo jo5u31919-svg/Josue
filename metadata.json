@@ -1,0 +1,6 @@
+{
+  "name": "ChronosSystem",
+  "description": "Sistema cyberpunk de gestión temporal con barra láser diaria, temporizadores de rendimiento, nodos con notas privadas, burbuja flotante y widget de bloqueo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

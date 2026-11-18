@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modo Noche (Cyberpunk / Harmony Dark OLED) -->
+    <color name="cyber_bg_deep">#FF0A0A12</color>
+    <color name="cyber_surface">#FF12121E</color>
+    <color name="cyber_surface_glass">#D912121E</color>
+    <color name="cyber_surface_elevated">#FF1C2036</color>
+    <color name="cyber_border_subtle">#33FFFFFF</color>
+    <color name="cyber_rim_highlight">#5500F0FF</color>
+
+    <!-- Acentos Neón Nocturnos -->
+    <color name="neon_cyan">#FF00F0FF</color>
+    <color name="neon_magenta">#FFFF0055</color>
+    <color name="neon_amber">#FFFFB800</color>
+    <color name="neon_green">#FF00FF9F</color>
+    <color name="neon_violet">#FF9D00FF</color>
+
+    <!-- Tipografía Espacial Nocturna -->
+    <color name="cyber_text_primary">#FFF4F8FF</color>
+    <color name="cyber_text_secondary">#FFA6B3D1</color>
+    <color name="cyber_text_muted">#FF657091</color>
+
+    <!-- Capas de Vidrio y Brillo para Drawables -->
+    <color name="cyber_glass_fill">#EB12121E</color>
+    <color name="cyber_glass_fill_alt">#EB181B2C</color>
+    <color name="cyber_badge_fill">#2400F0FF</color>
+    <color name="cyber_capsule_fill">#261C223B</color>
+    <color name="cyber_aura_primary">#2600F0FF</color>
+    <color name="cyber_aura_secondary">#1FFF0055</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

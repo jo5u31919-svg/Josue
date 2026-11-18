@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardCustomItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/cyber_surface_glass"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/cyber_border_subtle"
+    app:strokeWidth="1.1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="14dp">
+
+        <View
+            android:id="@+id/viewStatusDot"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:background="@drawable/bg_overlay_orb" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvCustomName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/orbitron"
+                android:text="PROTOCOLO ALPHA"
+                android:textColor="@color/cyber_text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCustomSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/rajdhani"
+                android:text="09:00 · 45 min · Diario · L M X J V"
+                android:textColor="@color/cyber_text_secondary"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCustomCountdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_harmony_capsule_btn"
+            android:fontFamily="@font/jetbrains_mono"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            android:text="00:45:00"
+            android:textColor="@color/neon_cyan"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
